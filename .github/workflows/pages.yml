@@ -19,9 +19,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Run test
+        run: |
+          npm ci || true    # ok if no deps; still lets npm run
+          npm test          # <-- this must be here
+
       - uses: actions/upload-pages-artifact@v3
+        if: success()       # only upload if tests passed
         with:
           path: .
 
       - id: deploy
+        if: success()       # only deploy if tests passed
         uses: actions/deploy-pages@v4
