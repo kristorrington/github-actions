@@ -1,0 +1,9 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "description": "A simple Hello World site deployed with GitHub Actions",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "license": "MIT"
+}
